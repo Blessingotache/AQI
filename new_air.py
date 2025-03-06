@@ -38,9 +38,10 @@ if st.button('Predict'):
 
 # Chart
     fig, ax = plt.subplots()
-    ax.bar([predicted_AQI], [1], color=AQI_colors.get(predicted_AQI, 'gray'))
+    ax.bar([0], [1], color=AQI_colors.get(predicted_AQI, 'gray'))
     ax.set_ylabel('Air Quality Level')
     ax.set_title('AQI Prediction')
     ax.set_ylim(0, 1.5)
+    ax.set_xticks([0])
     ax.set_xticklabels([predicted_AQI], fontsize=12)
     st.pyplot(fig)
