@@ -27,7 +27,7 @@ if st.button('Predict'):
 
     # AQI Mapping and Colors
     AQI_mapping = {0: 'Good', 1: 'Hazardous', 2: 'Moderate', 3: 'Poor', 4: 'Unhealthy', 5: 'Very unhealthy'}
-    AQI_colors = {'Good': 'green', 'Moderate': 'yellow', 'Poor': 'yellow', 'Unhealthy': 'red', 'Very unhealthy': 'purple', 'Hazardous': 'maroon'}
+    AQI_colors = {'Good': 'green', 'Moderate': 'yellow', 'Poor': 'orange', 'Unhealthy': 'red', 'Very unhealthy': 'purple', 'Hazardous': 'maroon'}
 
     if isinstance(prediction[0], str):
         predicted_AQI = prediction[0]  # Use the label directly
