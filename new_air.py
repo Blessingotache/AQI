@@ -1,5 +1,6 @@
 import numpy as np
 import streamlit as st
+import pickle
 #Load Model
 with open('air_quality.pkl', 'rb') as file:
     model = pickle.load(file)
