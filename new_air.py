@@ -34,9 +34,10 @@ if st.button('Predict'):
     else:
         predicted_AQI = AQI_mapping.get(int(prediction[0]), 'Unknown')
 
-    # Display results
-    st.write(f'The predicted AQI is: {predicted_AQI}')
-    if predicted_AQI == 'Good':
+  # Display results
+st.write(f'The predicted AQI is: {predicted_AQI}')
+
+if predicted_AQI == 'Good':
     st.write("✅ Air quality is satisfactory, and air pollution poses little or no risk.")
 elif predicted_AQI == 'Moderate':
     st.write("🟡 Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.")
@@ -48,6 +49,7 @@ elif predicted_AQI == 'Very unhealthy':
     st.write("🟣 Health alert: The risk of health effects is increased for everyone.")
 elif predicted_AQI == 'Hazardous':
     st.write("🚨 Health warnings of emergency conditions. Everyone is more likely to be affected.")
+
 
    
     # Chart
