@@ -34,21 +34,34 @@ if st.button('Predict'):
     else:
         predicted_AQI = AQI_mapping.get(int(prediction[0]), 'Unknown')
 
-  # Display results
-st.write(f'The predicted AQI is: {predicted_AQI}')
+import streamlit as st
 
-if predicted_AQI == 'Good':
-    st.write("✅ Air quality is satisfactory, and air pollution poses little or no risk.")
-elif predicted_AQI == 'Moderate':
-    st.write("🟡 Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.")
-elif predicted_AQI == 'Poor':
-    st.write("🟠 Members of sensitive groups may experience health effects. The general public is less likely to be affected.")
-elif predicted_AQI == 'Unhealthy':
-    st.write("🔴 Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.")
-elif predicted_AQI == 'Very unhealthy':
-    st.write("🟣 Health alert: The risk of health effects is increased for everyone.")
-elif predicted_AQI == 'Hazardous':
-    st.write("🚨 Health warnings of emergency conditions. Everyone is more likely to be affected.")
+# Ensure predicted_AQI is defined before using it
+try:
+    # Example placeholder for prediction (Replace this with actual model output)
+    predicted_AQI = "Good"  # Change this dynamically based on your model's prediction
+
+    # Display results
+    st.write(f'The predicted AQI is: {predicted_AQI}')
+
+    if predicted_AQI == 'Good':
+        st.write("✅ Air quality is satisfactory, and air pollution poses little or no risk.")
+    elif predicted_AQI == 'Moderate':
+        st.write("🟡 Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.")
+    elif predicted_AQI == 'Poor':
+        st.write("🟠 Members of sensitive groups may experience health effects. The general public is less likely to be affected.")
+    elif predicted_AQI == 'Unhealthy':
+        st.write("🔴 Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.")
+    elif predicted_AQI == 'Very unhealthy':
+        st.write("🟣 Health alert: The risk of health effects is increased for everyone.")
+    elif predicted_AQI == 'Hazardous':
+        st.write("🚨 Health warnings of emergency conditions. Everyone is more likely to be affected.")
+    else:
+        st.write("⚠️ Unknown AQI category. Please check the model output.")
+
+except NameError:
+    st.write("❌ Error: AQI prediction is missing. Ensure the model generates a prediction before displaying results.")
+
 
 
    
