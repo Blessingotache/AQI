@@ -27,7 +27,7 @@ if st.button('Predict'):
 
     # AQI Mapping and Colors
     AQI_mapping = {0: 'Good', 1: 'Hazardous', 2: 'Moderate', 3: 'Poor', 4: 'Unhealthy', 5: 'Very unhealthy'}
-    AQI_colors = {'Good': 'green', 'Moderate': 'lightgreen', 'Poor': 'orange', 'Unhealthy': 'darkorange', 'Very unhealthy': 'red', 'Hazardous': 'darkred'}
+    AQI_colors = {'Good': 'green', 'Moderate': 'yellow', 'Poor': 'yellow', 'Unhealthy': 'red', 'Very unhealthy': 'purple', 'Hazardous': 'maroon'}
 
     if isinstance(prediction[0], str):
         predicted_AQI = prediction[0]  # Use the label directly
@@ -36,11 +36,20 @@ if st.button('Predict'):
 
     # Display results
     st.write(f'The predicted AQI is: {predicted_AQI}')
-    st.write(f"Sulphur Dioxide (SO₂) [Soi]: {Soi}")
-    st.write(f"Nitrogen Dioxide (NO₂) [Noi]: {Noi}")
-    st.write(f"Respirable Suspended Particulate Matter (RSPM) [Rpi]: {Rpi}")
-    st.write(f"Suspended Particulate Matter (SPM) [SPMi]: {SPMi}")
+    if predicted_AQI == 'Good':
+    st.write("✅ Air quality is satisfactory, and air pollution poses little or no risk.")
+elif predicted_AQI == 'Moderate':
+    st.write("🟡 Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.")
+elif predicted_AQI == 'Poor':
+    st.write("🟠 Members of sensitive groups may experience health effects. The general public is less likely to be affected.")
+elif predicted_AQI == 'Unhealthy':
+    st.write("🔴 Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.")
+elif predicted_AQI == 'Very unhealthy':
+    st.write("🟣 Health alert: The risk of health effects is increased for everyone.")
+elif predicted_AQI == 'Hazardous':
+    st.write("🚨 Health warnings of emergency conditions. Everyone is more likely to be affected.")
 
+   
     # Chart
     fig, ax = plt.subplots()
     ax.bar([0], [1], color=AQI_colors.get(predicted_AQI, 'gray'))
