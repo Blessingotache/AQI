@@ -18,14 +18,18 @@ Noi=st.number_input('Noi')
 Rpi=st.number_input('Rpi')
 SPMi=st.number_input('SPMi')
 
-#Prediction
-
-if st.button('predict'):
+# Prediction
+if st.button('Predict'):
     user_input = np.array([[Soi, Noi, Rpi, SPMi]])
     prediction = model.predict(user_input)
-    
-    AQI_mapping = {0: 'Good', 1: 'Hazardous', 2: 'Moderate', 3:'Poor', 4:'Unhealthy', 5:'Very unhealthy'}
-    #st.write(prediction)
-    
-    predicted_AQI = AQI_mapping.get(prediction[0], 'unknown')
+
+    st.write(f"Raw model output: {prediction}")  # Debugging step
+
+    # Check if the model is returning a string label
+    if isinstance(prediction[0], str):
+        predicted_AQI = prediction[0]  # Use the label directly
+    else:
+        AQI_mapping = {0: 'Good', 1: 'Hazardous', 2: 'Moderate', 3: 'Poor', 4: 'Unhealthy', 5: 'Very unhealthy'}
+        predicted_AQI = AQI_mapping.get(int(prediction[0]), 'Unknown')
+
     st.write(f'The predicted AQI is: {predicted_AQI}')
