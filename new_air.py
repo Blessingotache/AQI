@@ -27,5 +27,5 @@ if st.button('predict'):
     AQI_mapping = {0: 'Good', 1: 'Hazardous', 2: 'Moderate', 3:'Poor', 4:'Unhealthy', 5:'Very unhealthy'}
     #st.write(prediction)
     
-    predicted_AQI = AQI_mapping.get(int(prediction[0]), 'unknown')
+    predicted_AQI = AQI_mapping.get(prediction[0], 'unknown')
     st.write(f'The predicted AQI is: {predicted_AQI}')
