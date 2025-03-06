@@ -39,7 +39,18 @@ if st.button('Predict'):
     # Display results
     st.write(f'The predicted AQI is: {predicted_AQI}')
 
-   
+    # AQI interpretation messages
+    AQI_messages = {
+        'Good': "✅ Air quality is satisfactory, and air pollution poses little or no risk.",
+        'Moderate': "🟡 Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.",
+        'Poor': "🟠 Members of sensitive groups may experience health effects. The general public is less likely to be affected.",
+        'Unhealthy': "🔴 Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.",
+        'Very unhealthy': "🟣 Health alert: The risk of health effects is increased for everyone.",
+        'Hazardous': "🚨 Health warnings of emergency conditions. Everyone is more likely to be affected."
+    }
+
+    # Display AQI category explanation
+    st.write(AQI_messages.get(predicted_AQI, "⚠️ Unknown AQI category. Please check the model output."))
 
    
     # Chart
