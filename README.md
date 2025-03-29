@@ -4,6 +4,9 @@ Welcome to the Air Quality Prediction project—a comprehensive AI/ML solution t
 ## Project Overview
 This project focuses on building a predictive model for air quality using real-world data. It includes detailed exploratory data analysis (EDA), custom feature engineering to calculate pollutant indexes, and the development of a Random Forest Classifier to predict Air Quality Index (AQI) ranges. The model is then deployed using Streamlit for interactive, real-time predictions.
 
+## Dataset
+The dataset used for this project is sourced from [Kaggle](https://www.kaggle.com/datasets/shrutibhargava94/india-air-quality-data). It provided comprehensive air quality data that enabled extensive EDA and model training.
+
 ## Technologies Used
 - Python for data analysis and modeling
 
