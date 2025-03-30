@@ -64,5 +64,5 @@ if st.button('Predict'):
     st.pyplot(fig)
 
     # Created 
-    st.write(f'Created by: {Blessing Otache}')
+    st.write(f'Created by: {"Blessing Otache"}')
 
