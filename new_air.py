@@ -9,8 +9,8 @@ with open('air_quality_index.pkl', 'rb') as file:
 
 # Streamlit UI
 st.title('Air Quality Prediction App')
-st.write('This app predicts the **Air Quality** type!')
-st.write('Please input the following parameters:')
+st.write('This app helps assess **air quality** by analyzing pollutant levels (SO₂, NO₂, RSPM, and SPM).')
+st.write('Fill in the details below and click Predict to see the air quality status:')
 
 # Input form
 Soi = st.number_input('Sulphur Dioxide (SO₂) [Soi]')
@@ -63,5 +63,6 @@ if st.button('Predict'):
     ax.set_xticklabels([predicted_AQI], fontsize=12)
     st.pyplot(fig)
 
-
+    # Created 
+    st.write(f'Created by: {Blessing Otache}')
 
