@@ -8,9 +8,9 @@ with open('air_quality_index.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Streamlit UI
-st.title('Air Quality Prediction App')
-st.write('This app helps assess **air quality** by analyzing pollutant levels (SO₂, NO₂, RSPM, and SPM).')
-st.write('Fill in the details below and click Predict to see the air quality status:')
+st.title('Welcome to the Air Quality Prediction App!')
+st.write('This app analyzes air pollutant levels to determine the overall Air Quality Index (AQI)')
+st.write('Enter pollutant levels, click Predict, and see if the air is safe.')
 
 # Input form
 Soi = st.number_input('Sulphur Dioxide (SO₂) [Soi]')
